@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="autoCompleteApp">
+	<head>
+		<title>AutoComplete</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="Demo project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body ng-controller="autoCompleteCtrl">
+
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">AutoComplete</a>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<label for="">Enter User Name</label>
+					<input
+					type="text"
+					name="username"
+					class="form-control"
+					ng-model="username"
+					ng-keyup="complete(username)"/>
+
+					<ul class="list-group" ng-hide="hidethis">
+						<li class="list-group-item dropList" ng-repeat="user in filterUserNames track by $index" ng-click="fillTextbox(user)">{{user.login}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="app.js"></script>
+		<script src="auto-complete.controller.js"></script>
+		<script src="auto-complete.service.js"></script>
+
+	</body>
+</html>
